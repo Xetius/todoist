@@ -1,0 +1,53 @@
+// !$*UTF8*$!
+{
+	83AB2FB211FA2184003290DC /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 83AB2FC111FA2185003290DC /* Todoist */;
+		activeTarget = 83AB2FBE11FA2184003290DC /* Todoist */;
+		codeSenseManager = 83AB2FB611FA2184003290DC /* Code sense */;
+		executables = (
+			83AB2FC111FA2185003290DC /* Todoist */,
+		);
+		ignoreBreakpointsInProjectsDict = {
+		};
+		userBuildSettings = {
+		};
+	};
+	83AB2FB611FA2184003290DC /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	83AB2FBE11FA2184003290DC /* Todoist */ = {
+		activeExec = 0;
+		executables = (
+			83AB2FC111FA2185003290DC /* Todoist */,
+		);
+	};
+	83AB2FC111FA2185003290DC /* Todoist */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = Todoist;
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+}

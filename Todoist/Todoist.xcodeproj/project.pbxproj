@@ -1,0 +1,312 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		833A131111FA22BF00FA3ACC /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833A131011FA22BF00FA3ACC /* ProjectViewController.m */; };
+		833A131411FA22EA00FA3ACC /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833A131311FA22EA00FA3ACC /* ItemViewController.m */; };
+		83AB2FC311FA2185003290DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AB2FC211FA2185003290DC /* UIKit.framework */; };
+		83AB2FC511FA2185003290DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AB2FC411FA2185003290DC /* Foundation.framework */; };
+		83AB2FC711FA2185003290DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AB2FC611FA2185003290DC /* CoreGraphics.framework */; };
+		83AB2FCC11FA2185003290DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83AB2FCA11FA2185003290DC /* InfoPlist.strings */; };
+		83AB2FCE11FA2185003290DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AB2FCD11FA2185003290DC /* main.m */; };
+		83AB2FD111FA2185003290DC /* TodoistAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AB2FD011FA2185003290DC /* TodoistAppDelegate.m */; };
+		83AB2FD411FA2185003290DC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83AB2FD211FA2185003290DC /* MainWindow.xib */; };
+		83AB2FD711FA2185003290DC /* TodoistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AB2FD611FA2185003290DC /* TodoistViewController.m */; };
+		83AB2FDA11FA2185003290DC /* TodoistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83AB2FD811FA2185003290DC /* TodoistViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		833A130F11FA22BF00FA3ACC /* ProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectViewController.h; path = Classes/ProjectViewController.h; sourceTree = "<group>"; };
+		833A131011FA22BF00FA3ACC /* ProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectViewController.m; path = Classes/ProjectViewController.m; sourceTree = "<group>"; };
+		833A131211FA22EA00FA3ACC /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
+		833A131311FA22EA00FA3ACC /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
+		83AB2FBF11FA2184003290DC /* Todoist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83AB2FC211FA2185003290DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		83AB2FC411FA2185003290DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		83AB2FC611FA2185003290DC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		83AB2FC811FA2185003290DC /* Todoist-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Todoist-Info.plist"; sourceTree = "<group>"; };
+		83AB2FC911FA2185003290DC /* Todoist_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Todoist_Prefix.pch; sourceTree = "<group>"; };
+		83AB2FCB11FA2185003290DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		83AB2FCD11FA2185003290DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		83AB2FCF11FA2185003290DC /* TodoistAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodoistAppDelegate.h; sourceTree = "<group>"; };
+		83AB2FD011FA2185003290DC /* TodoistAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodoistAppDelegate.m; sourceTree = "<group>"; };
+		83AB2FD311FA2185003290DC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		83AB2FD511FA2185003290DC /* TodoistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TodoistViewController.h; path = Classes/TodoistViewController.h; sourceTree = "<group>"; };
+		83AB2FD611FA2185003290DC /* TodoistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TodoistViewController.m; path = Classes/TodoistViewController.m; sourceTree = "<group>"; };
+		83AB2FD911FA2185003290DC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TodoistViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		83AB2FBC11FA2184003290DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83AB2FC311FA2185003290DC /* UIKit.framework in Frameworks */,
+				83AB2FC511FA2185003290DC /* Foundation.framework in Frameworks */,
+				83AB2FC711FA2185003290DC /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		833A130E11FA228900FA3ACC /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				83AB2FD511FA2185003290DC /* TodoistViewController.h */,
+				83AB2FD611FA2185003290DC /* TodoistViewController.m */,
+				833A130F11FA22BF00FA3ACC /* ProjectViewController.h */,
+				833A131011FA22BF00FA3ACC /* ProjectViewController.m */,
+				833A131211FA22EA00FA3ACC /* ItemViewController.h */,
+				833A131311FA22EA00FA3ACC /* ItemViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		83AB2FB011FA2184003290DC = {
+			isa = PBXGroup;
+			children = (
+				833A130E11FA228900FA3ACC /* View Controllers */,
+				83AB2FB711FA2184003290DC /* Classes */,
+				83AB2FB811FA2184003290DC /* Other Sources */,
+				83AB2FB911FA2184003290DC /* Resources */,
+				83AB2FBA11FA2184003290DC /* Frameworks */,
+				83AB2FC011FA2184003290DC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		83AB2FB711FA2184003290DC /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				83AB2FCF11FA2185003290DC /* TodoistAppDelegate.h */,
+				83AB2FD011FA2185003290DC /* TodoistAppDelegate.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		83AB2FB811FA2184003290DC /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				83AB2FC911FA2185003290DC /* Todoist_Prefix.pch */,
+				83AB2FCD11FA2185003290DC /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		83AB2FB911FA2184003290DC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				83AB2FC811FA2185003290DC /* Todoist-Info.plist */,
+				83AB2FCA11FA2185003290DC /* InfoPlist.strings */,
+				83AB2FD211FA2185003290DC /* MainWindow.xib */,
+				83AB2FD811FA2185003290DC /* TodoistViewController.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		83AB2FBA11FA2184003290DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83AB2FC211FA2185003290DC /* UIKit.framework */,
+				83AB2FC411FA2185003290DC /* Foundation.framework */,
+				83AB2FC611FA2185003290DC /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83AB2FC011FA2184003290DC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83AB2FBF11FA2184003290DC /* Todoist.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		83AB2FBE11FA2184003290DC /* Todoist */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83AB2FDD11FA2185003290DC /* Build configuration list for PBXNativeTarget "Todoist" */;
+			buildPhases = (
+				83AB2FBB11FA2184003290DC /* Sources */,
+				83AB2FBC11FA2184003290DC /* Frameworks */,
+				83AB2FBD11FA2184003290DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Todoist;
+			productName = Todoist;
+			productReference = 83AB2FBF11FA2184003290DC /* Todoist.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83AB2FB211FA2184003290DC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Xetius Software";
+			};
+			buildConfigurationList = 83AB2FB511FA2184003290DC /* Build configuration list for PBXProject "Todoist" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 83AB2FB011FA2184003290DC;
+			productRefGroup = 83AB2FC011FA2184003290DC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				83AB2FBE11FA2184003290DC /* Todoist */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		83AB2FBD11FA2184003290DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83AB2FCC11FA2185003290DC /* InfoPlist.strings in Resources */,
+				83AB2FD411FA2185003290DC /* MainWindow.xib in Resources */,
+				83AB2FDA11FA2185003290DC /* TodoistViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		83AB2FBB11FA2184003290DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83AB2FCE11FA2185003290DC /* main.m in Sources */,
+				83AB2FD111FA2185003290DC /* TodoistAppDelegate.m in Sources */,
+				83AB2FD711FA2185003290DC /* TodoistViewController.m in Sources */,
+				833A131111FA22BF00FA3ACC /* ProjectViewController.m in Sources */,
+				833A131411FA22EA00FA3ACC /* ItemViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		83AB2FCA11FA2185003290DC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83AB2FCB11FA2185003290DC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		83AB2FD211FA2185003290DC /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83AB2FD311FA2185003290DC /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		83AB2FD811FA2185003290DC /* TodoistViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83AB2FD911FA2185003290DC /* en */,
+			);
+			name = TodoistViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		83AB2FDB11FA2185003290DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos4.0;
+			};
+			name = Debug;
+		};
+		83AB2FDC11FA2185003290DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				SDKROOT = iphoneos4.0;
+			};
+			name = Release;
+		};
+		83AB2FDE11FA2185003290DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Todoist_Prefix.pch;
+				INFOPLIST_FILE = "Todoist-Info.plist";
+				PRODUCT_NAME = Todoist;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		83AB2FDF11FA2185003290DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Todoist_Prefix.pch;
+				INFOPLIST_FILE = "Todoist-Info.plist";
+				PRODUCT_NAME = Todoist;
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		83AB2FB511FA2184003290DC /* Build configuration list for PBXProject "Todoist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83AB2FDB11FA2185003290DC /* Debug */,
+				83AB2FDC11FA2185003290DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83AB2FDD11FA2185003290DC /* Build configuration list for PBXNativeTarget "Todoist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83AB2FDE11FA2185003290DC /* Debug */,
+				83AB2FDF11FA2185003290DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83AB2FB211FA2184003290DC /* Project object */;
+}
