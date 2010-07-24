@@ -21,7 +21,7 @@
 
     
     // Create Navigation Controller
-    TodoistViewController* rootController = [[TodoistViewController alloc] init];
+    TodoistViewController* rootController = [[TodoistViewController alloc] initWithNibName:@"TodoistViewController" bundle:nil];
     navigationController = [[UINavigationController alloc] initWithRootViewController:rootController];
     [rootController release];
     
