@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		833A131111FA22BF00FA3ACC /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833A131011FA22BF00FA3ACC /* ProjectViewController.m */; };
-		833A131411FA22EA00FA3ACC /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833A131311FA22EA00FA3ACC /* ItemViewController.m */; };
+		8390EC5811FB02D500E31BC5 /* ProjectsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8390EC5611FB02D500E31BC5 /* ProjectsTableViewController.m */; };
+		8390EC5911FB02D500E31BC5 /* ProjectsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8390EC5711FB02D500E31BC5 /* ProjectsTableViewController.xib */; };
+		8390EC5D11FB030900E31BC5 /* ItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8390EC5B11FB030900E31BC5 /* ItemsTableViewController.m */; };
+		8390EC5E11FB030900E31BC5 /* ItemsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8390EC5C11FB030900E31BC5 /* ItemsTableViewController.xib */; };
 		83AB2FC311FA2185003290DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AB2FC211FA2185003290DC /* UIKit.framework */; };
 		83AB2FC511FA2185003290DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AB2FC411FA2185003290DC /* Foundation.framework */; };
 		83AB2FC711FA2185003290DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AB2FC611FA2185003290DC /* CoreGraphics.framework */; };
@@ -21,10 +23,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		833A130F11FA22BF00FA3ACC /* ProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectViewController.h; path = Classes/ProjectViewController.h; sourceTree = "<group>"; };
-		833A131011FA22BF00FA3ACC /* ProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectViewController.m; path = Classes/ProjectViewController.m; sourceTree = "<group>"; };
-		833A131211FA22EA00FA3ACC /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
-		833A131311FA22EA00FA3ACC /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
+		8390EC5511FB02D500E31BC5 /* ProjectsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectsTableViewController.h; path = "View Controllers/ProjectsTableViewController.h"; sourceTree = "<group>"; };
+		8390EC5611FB02D500E31BC5 /* ProjectsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectsTableViewController.m; path = "View Controllers/ProjectsTableViewController.m"; sourceTree = "<group>"; };
+		8390EC5711FB02D500E31BC5 /* ProjectsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProjectsTableViewController.xib; path = "View Controllers/ProjectsTableViewController.xib"; sourceTree = "<group>"; };
+		8390EC5A11FB030900E31BC5 /* ItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemsTableViewController.h; path = "View Controllers/ItemsTableViewController.h"; sourceTree = "<group>"; };
+		8390EC5B11FB030900E31BC5 /* ItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemsTableViewController.m; path = "View Controllers/ItemsTableViewController.m"; sourceTree = "<group>"; };
+		8390EC5C11FB030900E31BC5 /* ItemsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ItemsTableViewController.xib; path = "View Controllers/ItemsTableViewController.xib"; sourceTree = "<group>"; };
 		83AB2FBF11FA2184003290DC /* Todoist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83AB2FC211FA2185003290DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		83AB2FC411FA2185003290DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,10 +64,10 @@
 			children = (
 				83AB2FD511FA2185003290DC /* TodoistViewController.h */,
 				83AB2FD611FA2185003290DC /* TodoistViewController.m */,
-				833A130F11FA22BF00FA3ACC /* ProjectViewController.h */,
-				833A131011FA22BF00FA3ACC /* ProjectViewController.m */,
-				833A131211FA22EA00FA3ACC /* ItemViewController.h */,
-				833A131311FA22EA00FA3ACC /* ItemViewController.m */,
+				8390EC5511FB02D500E31BC5 /* ProjectsTableViewController.h */,
+				8390EC5611FB02D500E31BC5 /* ProjectsTableViewController.m */,
+				8390EC5A11FB030900E31BC5 /* ItemsTableViewController.h */,
+				8390EC5B11FB030900E31BC5 /* ItemsTableViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -101,10 +105,12 @@
 		83AB2FB911FA2184003290DC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				83AB2FD811FA2185003290DC /* TodoistViewController.xib */,
+				83AB2FD211FA2185003290DC /* MainWindow.xib */,
+				8390EC5711FB02D500E31BC5 /* ProjectsTableViewController.xib */,
+				8390EC5C11FB030900E31BC5 /* ItemsTableViewController.xib */,
 				83AB2FC811FA2185003290DC /* Todoist-Info.plist */,
 				83AB2FCA11FA2185003290DC /* InfoPlist.strings */,
-				83AB2FD211FA2185003290DC /* MainWindow.xib */,
-				83AB2FD811FA2185003290DC /* TodoistViewController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -180,6 +186,8 @@
 				83AB2FCC11FA2185003290DC /* InfoPlist.strings in Resources */,
 				83AB2FD411FA2185003290DC /* MainWindow.xib in Resources */,
 				83AB2FDA11FA2185003290DC /* TodoistViewController.xib in Resources */,
+				8390EC5911FB02D500E31BC5 /* ProjectsTableViewController.xib in Resources */,
+				8390EC5E11FB030900E31BC5 /* ItemsTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,8 +201,8 @@
 				83AB2FCE11FA2185003290DC /* main.m in Sources */,
 				83AB2FD111FA2185003290DC /* TodoistAppDelegate.m in Sources */,
 				83AB2FD711FA2185003290DC /* TodoistViewController.m in Sources */,
-				833A131111FA22BF00FA3ACC /* ProjectViewController.m in Sources */,
-				833A131411FA22EA00FA3ACC /* ItemViewController.m in Sources */,
+				8390EC5811FB02D500E31BC5 /* ProjectsTableViewController.m in Sources */,
+				8390EC5D11FB030900E31BC5 /* ItemsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
