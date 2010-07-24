@@ -19,14 +19,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    
-    // Create Navigation Controller
-    TodoistViewController* rootController = [[TodoistViewController alloc] initWithNibName:@"TodoistViewController" bundle:nil];
-    navigationController = [[UINavigationController alloc] initWithRootViewController:rootController];
-    [rootController release];
-    
-    window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [window addSubview:navigationController.view];
     [window makeKeyAndVisible];
     
     return YES;

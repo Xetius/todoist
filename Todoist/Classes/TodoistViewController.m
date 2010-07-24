@@ -35,10 +35,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    projectsTableViewController = [[ProjectsTableViewController alloc] initWithNibName:@"ProjectsTableViewController" bundle:nil];
+    projectsTableViewController = (ProjectsTableViewController*)[[ProjectsTableViewController alloc] initWithNibName:@"ProjectsTableViewController" bundle:nil];
 	[self.view addSubview:projectsTableViewController.view];
 	
 	itemsTableViewController = [[ItemsTableViewController alloc] initWithNibName:@"ItemsTableViewController" bundle:nil];
+
 }
 
 /*
