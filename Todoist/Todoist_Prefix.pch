@@ -5,6 +5,8 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+	#import "XLogging.h"
+	#import "defines.h"
 #endif
 
 #import <Availability.h>
