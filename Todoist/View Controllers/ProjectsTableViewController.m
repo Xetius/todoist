@@ -7,25 +7,27 @@
 //
 
 #import "ProjectsTableViewController.h"
-
+#import "TodoistAppDelegate.h"
+#import "XDataEngine.h"
 
 @implementation ProjectsTableViewController
 
+@synthesize projectId;
+@synthesize projects;
 
 #pragma mark -
 #pragma mark View lifecycle
 
-/*
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	
+	XDataEngine* engine = [XDataEngine sharedDataEngine];
+	projects = [[engine projectsForProjectId:[self projectId] WithDelegate:self] retain];
 }
-*/
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -60,14 +62,17 @@
 #pragma mark Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1;
+	return 1;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 10;
+	if (projects != nil) {
+		return [projects count];
+	}
+	else {
+		return 1;
+	}
 }
 
 
@@ -80,9 +85,16 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-    
-    // Configure the cell...
-    
+
+    if (projects != nil) {
+		
+		NSDictionary* projectItem = [projects objectAtIndex:indexPath.row];
+		cell.textLabel.text = [projectItem objectForKey:@"name"];
+	}
+    else {
+		cell.textLabel.text = @"Loading...";
+	}
+
     return cell;
 }
 
@@ -162,6 +174,17 @@
     [super dealloc];
 }
 
+-(void)dataHasLoaded:(int)requestType {
+	XDataEngine* engine = [XDataEngine sharedDataEngine];
+	switch(requestType) {
+			
+		case DATA_REQUEST_PROJECTS:
+			[projects release];
+			projects = [[engine projectsForProjectId:[self projectId] WithDelegate:self] retain];
+			[self.tableView reloadData];
+			break;
+	}
+}
 
 @end
 

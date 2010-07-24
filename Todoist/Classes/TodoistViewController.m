@@ -65,14 +65,14 @@
 	[UIView setAnimationDelegate:self];
 	[UIView setAnimationDidStopSelector:@selector(myTransitionDidStop:finished:context:)];
 	if (self.frontVisible) {
-		[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:YES];
-		[projectsTableViewController.view removeFromSuperview];
-		[self.view addSubview:itemsTableViewController.view];
-	}
-	else {
 		[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.view cache:YES];
 		[itemsTableViewController.view removeFromSuperview];
 		[self.view addSubview:projectsTableViewController.view];	
+	}
+	else {
+		[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:YES];
+		[projectsTableViewController.view removeFromSuperview];
+		[self.view addSubview:itemsTableViewController.view];
 	}
 	[UIView commitAnimations];
 

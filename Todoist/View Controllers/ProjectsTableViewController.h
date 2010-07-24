@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XDataEngineDelegate.h"
 
-
-@interface ProjectsTableViewController : UITableViewController {
-    
+@interface ProjectsTableViewController : UITableViewController<XDataEngineDelegate> {
+	
+	NSInteger projectId;
+	NSMutableArray* projects;
 }
+
+@property NSInteger projectId;
+@property (nonatomic, retain) NSMutableArray* projects;
 
 @end
