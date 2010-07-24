@@ -10,8 +10,8 @@
 
 @implementation TodoistViewController
 
-@synthesize projectViewController;
-@synthesize itemViewController;
+@synthesize projectsTableViewController;
+@synthesize itemsTableViewController;
 @synthesize frontVisible;
 
 /*
@@ -35,16 +35,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Create ProjectViewController
-    projectViewController = [[ProjectViewController alloc] initWithStyle:UITableViewStylePlain];
-    [self.view addSubview:projectViewController.view];
-    frontVisible = true;
-    
-    // Create ItemViewController
-    itemViewController = [[ItemViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    
-    // Add the flip button to the navigationController
-    
+    projectsTableViewController = [[ProjectsTableViewController alloc] initWithNibName:@"ProjectsTableViewController" bundle:nil];
+	[self.view addSubview:projectsTableViewController.view];
+	
+	itemsTableViewController = [[ItemsTableViewController alloc] initWithNibName:@"ItemsTableViewController" bundle:nil];
 }
 
 /*

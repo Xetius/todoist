@@ -7,19 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ProjectViewController.h"
-#import "ItemViewController.h"
+#import "ProjectsTableViewController.h"
+#import "ItemsTableViewController.h"
 
 @interface TodoistViewController : UIViewController {
 
-    ProjectViewController* projectViewController;
-    ItemViewController* itemViewController;
+    ProjectsTableViewController* projectsTableViewController;
+    ItemsTableViewController* itemsTableViewController;
     bool frontVisible;
     
 }
 
-@property (nonatomic, retain) ProjectViewController* projectViewController;
-@property (nonatomic, retain) ItemViewController* itemViewController;
+@property (nonatomic, retain) ProjectsTableViewController* projectsTableViewController;
+@property (nonatomic, retain) ItemsTableViewController* itemsTableViewController;
 @property bool frontVisible;
 
 @end
