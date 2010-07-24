@@ -11,6 +11,9 @@
 		8390EC5911FB02D500E31BC5 /* ProjectsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8390EC5711FB02D500E31BC5 /* ProjectsTableViewController.xib */; };
 		8390EC5D11FB030900E31BC5 /* ItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8390EC5B11FB030900E31BC5 /* ItemsTableViewController.m */; };
 		8390EC5E11FB030900E31BC5 /* ItemsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8390EC5C11FB030900E31BC5 /* ItemsTableViewController.xib */; };
+		8390EC7411FB773C00E31BC5 /* button.psd in Resources */ = {isa = PBXBuildFile; fileRef = 8390EC7111FB773C00E31BC5 /* button.psd */; };
+		8390EC7511FB773C00E31BC5 /* items-bar-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8390EC7211FB773C00E31BC5 /* items-bar-button.png */; };
+		8390EC7611FB773C00E31BC5 /* projects-bar-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8390EC7311FB773C00E31BC5 /* projects-bar-button.png */; };
 		83AB2FC311FA2185003290DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AB2FC211FA2185003290DC /* UIKit.framework */; };
 		83AB2FC511FA2185003290DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AB2FC411FA2185003290DC /* Foundation.framework */; };
 		83AB2FC711FA2185003290DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AB2FC611FA2185003290DC /* CoreGraphics.framework */; };
@@ -29,6 +32,9 @@
 		8390EC5A11FB030900E31BC5 /* ItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemsTableViewController.h; path = "View Controllers/ItemsTableViewController.h"; sourceTree = "<group>"; };
 		8390EC5B11FB030900E31BC5 /* ItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemsTableViewController.m; path = "View Controllers/ItemsTableViewController.m"; sourceTree = "<group>"; };
 		8390EC5C11FB030900E31BC5 /* ItemsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ItemsTableViewController.xib; path = "View Controllers/ItemsTableViewController.xib"; sourceTree = "<group>"; };
+		8390EC7111FB773C00E31BC5 /* button.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = button.psd; sourceTree = "<group>"; };
+		8390EC7211FB773C00E31BC5 /* items-bar-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "items-bar-button.png"; sourceTree = "<group>"; };
+		8390EC7311FB773C00E31BC5 /* projects-bar-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "projects-bar-button.png"; sourceTree = "<group>"; };
 		83AB2FBF11FA2184003290DC /* Todoist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83AB2FC211FA2185003290DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		83AB2FC411FA2185003290DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -72,6 +78,16 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
+		8390EC7011FB773C00E31BC5 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8390EC7111FB773C00E31BC5 /* button.psd */,
+				8390EC7211FB773C00E31BC5 /* items-bar-button.png */,
+				8390EC7311FB773C00E31BC5 /* projects-bar-button.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		83AB2FB011FA2184003290DC = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +121,7 @@
 		83AB2FB911FA2184003290DC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8390EC7011FB773C00E31BC5 /* Images */,
 				83AB2FD811FA2185003290DC /* TodoistViewController.xib */,
 				83AB2FD211FA2185003290DC /* MainWindow.xib */,
 				8390EC5711FB02D500E31BC5 /* ProjectsTableViewController.xib */,
@@ -188,6 +205,9 @@
 				83AB2FDA11FA2185003290DC /* TodoistViewController.xib in Resources */,
 				8390EC5911FB02D500E31BC5 /* ProjectsTableViewController.xib in Resources */,
 				8390EC5E11FB030900E31BC5 /* ItemsTableViewController.xib in Resources */,
+				8390EC7411FB773C00E31BC5 /* button.psd in Resources */,
+				8390EC7511FB773C00E31BC5 /* items-bar-button.png in Resources */,
+				8390EC7611FB773C00E31BC5 /* projects-bar-button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

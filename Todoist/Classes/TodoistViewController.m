@@ -10,6 +10,7 @@
 
 @implementation TodoistViewController
 
+@synthesize flipTableButton;
 @synthesize projectsTableViewController;
 @synthesize itemsTableViewController;
 @synthesize frontVisible;
@@ -35,12 +36,69 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+	// Add flippable button to the nav bar
+	UIButton* localFlipButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 30)];
+	self.flipTableButton = localFlipButton;
+	[localFlipButton release];
+	
+	[self.flipTableButton setBackgroundImage:[UIImage imageNamed:@"items-bar-button.png"] forState:UIControlStateNormal];
+	UIBarButtonItem* flipButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.flipTableButton];
+	[self.navigationItem setRightBarButtonItem:flipButtonItem animated:YES];
+	
+	self.frontVisible = YES;
+	
     projectsTableViewController = (ProjectsTableViewController*)[[ProjectsTableViewController alloc] initWithNibName:@"ProjectsTableViewController" bundle:nil];
 	[self.view addSubview:projectsTableViewController.view];
 	
 	itemsTableViewController = [[ItemsTableViewController alloc] initWithNibName:@"ItemsTableViewController" bundle:nil];
-
+	[self.flipTableButton addTarget:self action:@selector(flipCurrentView) forControlEvents:UIControlEventTouchDown];
+	
+	self.title = @"Projects";
 }
+
+-(void)flipCurrentView {
+
+	self.frontVisible = !self.frontVisible;
+
+	[UIView beginAnimations:nil context:nil];
+	[UIView setAnimationDuration:0.75];
+	[UIView setAnimationDelegate:self];
+	[UIView setAnimationDidStopSelector:@selector(myTransitionDidStop:finished:context:)];
+	if (self.frontVisible) {
+		[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:YES];
+		[projectsTableViewController.view removeFromSuperview];
+		[self.view addSubview:itemsTableViewController.view];
+	}
+	else {
+		[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.view cache:YES];
+		[itemsTableViewController.view removeFromSuperview];
+		[self.view addSubview:projectsTableViewController.view];	
+	}
+	[UIView commitAnimations];
+
+	[UIView beginAnimations:nil context:nil];
+	[UIView setAnimationDuration:0.75];
+	[UIView setAnimationDelegate:self];
+	[UIView setAnimationDidStopSelector:@selector(myTransitionDidStop:finished:context:)];
+	if (self.frontVisible) {
+		[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:flipTableButton cache:YES];
+		[self.flipTableButton setBackgroundImage:[UIImage imageNamed:@"items-bar-button.png"] forState:UIControlStateNormal];
+	}
+	else {
+		[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:flipTableButton cache:YES];
+		[self.flipTableButton setBackgroundImage:[UIImage imageNamed:@"projects-bar-button.png"] forState:UIControlStateNormal];		
+	}
+	[UIView commitAnimations];
+	
+	if (self.frontVisible) {
+		self.title = @"Projects";
+	}
+	else
+	{
+		self.title = @"Items";
+	}
+}
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.

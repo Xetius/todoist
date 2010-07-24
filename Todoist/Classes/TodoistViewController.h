@@ -12,15 +12,19 @@
 
 @interface TodoistViewController : UIViewController {
 
+	UIButton* flipTableButton;
     ProjectsTableViewController* projectsTableViewController;
     ItemsTableViewController* itemsTableViewController;
     bool frontVisible;
     
 }
 
+@property (nonatomic, retain) UIButton* flipTableButton;
 @property (nonatomic, retain) ProjectsTableViewController* projectsTableViewController;
 @property (nonatomic, retain) ItemsTableViewController* itemsTableViewController;
 @property bool frontVisible;
+
+-(void)flipCurrentView;
 
 @end
 
