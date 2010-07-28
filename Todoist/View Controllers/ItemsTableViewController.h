@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XDataEngineDelegate.h"
 
+@interface ItemsTableViewController : UITableViewController<XDataEngineDelegate> {
 
-@interface ItemsTableViewController : UITableViewController {
-    
+    NSInteger projectId;
+	NSMutableArray* incompleteItems;
+	NSMutableArray* completeItems;
 }
 
+@property (readwrite, assign) NSInteger projectId;
+@property (nonatomic, retain) NSMutableArray* incompleteItems;
+@property (nonatomic, retain) NSMutableArray* completeItems;
 @end

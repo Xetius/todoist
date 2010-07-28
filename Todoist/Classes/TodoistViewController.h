@@ -12,6 +12,7 @@
 
 @interface TodoistViewController : UIViewController {
 
+	NSInteger projectId;
 	UIButton* flipTableButton;
     ProjectsTableViewController* projectsTableViewController;
     ItemsTableViewController* itemsTableViewController;
@@ -19,6 +20,7 @@
     
 }
 
+@property (readwrite, assign) NSInteger projectId;
 @property (nonatomic, retain) UIButton* flipTableButton;
 @property (nonatomic, retain) ProjectsTableViewController* projectsTableViewController;
 @property (nonatomic, retain) ItemsTableViewController* itemsTableViewController;

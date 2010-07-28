@@ -7,25 +7,29 @@
 //
 
 #import "ItemsTableViewController.h"
-
+#import "XDataEngine.h"
 
 @implementation ItemsTableViewController
 
+@synthesize projectId;
+@synthesize incompleteItems;
+@synthesize completeItems;
 
 #pragma mark -
 #pragma mark View lifecycle
 
-/*
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = NO;
  
+	XDataEngine* engine = [XDataEngine sharedDataEngine];
+	incompleteItems = [engine incompleteItemsForProjectId:[self projectId] WithDelegate:self];
+	completeItems = [engine completeItemsForProjectId:[self projectId] WithDelegate:self];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-*/
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -162,6 +166,9 @@
     [super dealloc];
 }
 
+-(void)dataHasLoaded:(int)requestType {
+	
+}
 
 @end
 

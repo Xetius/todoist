@@ -7,9 +7,12 @@
 //
 
 #import "TodoistViewController.h"
+#import "ProjectsTableViewController.h"
+#import "ItemsTableViewController.h"
 
 @implementation TodoistViewController
 
+@synthesize projectId;
 @synthesize flipTableButton;
 @synthesize projectsTableViewController;
 @synthesize itemsTableViewController;
@@ -47,10 +50,13 @@
 	
 	self.frontVisible = YES;
 	
-    projectsTableViewController = (ProjectsTableViewController*)[[ProjectsTableViewController alloc] initWithNibName:@"ProjectsTableViewController" bundle:nil];
-	[self.view addSubview:projectsTableViewController.view];
+    self.projectsTableViewController = [[ProjectsTableViewController alloc] initWithNibName:@"ProjectsTableViewController" bundle:nil];
+	self.projectsTableViewController.projectId = self.projectId;
+
+	[self.view addSubview:self.projectsTableViewController.view];
 	
-	itemsTableViewController = [[ItemsTableViewController alloc] initWithNibName:@"ItemsTableViewController" bundle:nil];
+	self.itemsTableViewController = [[ItemsTableViewController alloc] initWithNibName:@"ItemsTableViewController" bundle:nil];
+	
 	[self.flipTableButton addTarget:self action:@selector(flipCurrentView) forControlEvents:UIControlEventTouchDown];
 	
 	self.title = @"Projects";

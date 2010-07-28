@@ -15,7 +15,7 @@
 	NSMutableArray* projects;
 }
 
-@property NSInteger projectId;
+@property (nonatomic, assign) NSInteger projectId;
 @property (nonatomic, retain) NSMutableArray* projects;
 
 @end
