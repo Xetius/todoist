@@ -48,6 +48,21 @@
 	return numRowsForSection;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	switch (section) {
+		case ITEMTABLESECTIONINCOMPLETE:
+			return @"Incomplete Items";
+		case ITEMTABLESECTIONCOMPLETE:
+			return @"CompleteItems";
+	}
+	return @"-";
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+	NSArray* items = [self itemsForSection:section];
+	return [NSString stringWithFormat:@"%d items", items.count];
+}
+
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -111,14 +126,17 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-	 */
+	NSArray* items = [self itemsForSection:indexPath.section];
+	NSDictionary* item = [items objectAtIndex:indexPath.row];
+	NSInteger newProjectId = [[item objectForKey:@"id"] intValue];
+	bool hasChildren = [item objectForKey:@"hasChildren"];
+	
+	if (hasChildren) {
+		[parentController pushViewController:CONTROLLERTYPEITEMS projectId:newProjectId];		
+	}
+	else {
+		[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+	}
 }
 
 
