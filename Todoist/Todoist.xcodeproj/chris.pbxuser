@@ -1,5 +1,12 @@
 // !$*UTF8*$!
 {
+	8390EC5511FB02D500E31BC5 /* ProjectsTableViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {607, 409}}";
+			sepNavSelRange = "{319, 0}";
+			sepNavVisRange = "{0, 459}";
+		};
+	};
 	83AB2FB211FA2184003290DC /* Project object */ = {
 		activeBuildConfigurationName = Debug;
 		activeExecutable = 83AB2FC111FA2185003290DC /* Todoist */;
@@ -10,6 +17,39 @@
 		);
 		ignoreBreakpointsInProjectsDict = {
 		};
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					10,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 301780521;
+			PBXWorkspaceStateSaveDate = 301780521;
+		};
+		perUserProjectItems = {
+			83D592DF11FCD41B00DC4C60 /* PBXTextBookmark */ = 83D592DF11FCD41B00DC4C60 /* PBXTextBookmark */;
+			83D592E011FCD41B00DC4C60 /* PBXTextBookmark */ = 83D592E011FCD41B00DC4C60 /* PBXTextBookmark */;
+			83D592E111FCD41B00DC4C60 /* PBXBookmark */ = 83D592E111FCD41B00DC4C60 /* PBXBookmark */;
+			83D592E211FCD41B00DC4C60 /* PBXTextBookmark */ = 83D592E211FCD41B00DC4C60 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 83D592DC11FCCE4700DC4C60 /* Source Control */;
 		userBuildSettings = {
 		};
 	};
@@ -49,5 +89,63 @@
 		showTypeColumn = 0;
 		sourceDirectories = (
 		);
+	};
+	83AB2FD511FA2185003290DC /* TodoistViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {621, 429}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 857}";
+		};
+	};
+	83AB2FD611FA2185003290DC /* TodoistViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1167, 1612}}";
+			sepNavSelRange = "{1724, 0}";
+			sepNavVisRange = "{717, 1364}";
+		};
+	};
+	83D592DC11FCCE4700DC4C60 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	83D592DF11FCD41B00DC4C60 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 83AB2FD511FA2185003290DC /* TodoistViewController.h */;
+		name = "TodoistViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 857;
+		vrLoc = 0;
+	};
+	83D592E011FCD41B00DC4C60 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 83AB2FD611FA2185003290DC /* TodoistViewController.m */;
+		name = "TodoistViewController.m: 52";
+		rLen = 0;
+		rLoc = 1724;
+		rType = 0;
+		vrLen = 1364;
+		vrLoc = 717;
+	};
+	83D592E111FCD41B00DC4C60 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 8390EC5511FB02D500E31BC5 /* ProjectsTableViewController.h */;
+	};
+	83D592E211FCD41B00DC4C60 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8390EC5511FB02D500E31BC5 /* ProjectsTableViewController.h */;
+		name = "ProjectsTableViewController.h: 14";
+		rLen = 0;
+		rLoc = 319;
+		rType = 0;
+		vrLen = 459;
+		vrLoc = 0;
 	};
 }

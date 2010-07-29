@@ -8,14 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "XDataEngineDelegate.h"
+@class TodoistViewController;
 
 @interface ProjectsTableViewController : UITableViewController<XDataEngineDelegate> {
 	
 	NSInteger projectId;
 	NSMutableArray* projects;
+	TodoistViewController* parentViewController;
 }
 
 @property (nonatomic, assign) NSInteger projectId;
 @property (nonatomic, retain) NSMutableArray* projects;
+@property (nonatomic, retain) TodoistViewController* parentViewController;
 
 @end

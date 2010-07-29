@@ -10,6 +10,11 @@
 #import "ProjectsTableViewController.h"
 #import "ItemsTableViewController.h"
 
+typedef enum {
+	CONTROLLERTYPEPROJECTS,
+	CONTROLLERTYPEITEMS
+} CONTROLLERTYPE;
+
 @interface TodoistViewController : UIViewController {
 
 	NSInteger projectId;
@@ -27,6 +32,8 @@
 @property bool frontVisible;
 
 -(void)flipCurrentView;
+-(id) initWithProjectId:(NSInteger) pId;
+-(void) pushViewController:(CONTROLLERTYPE)controllerType projectId:(NSInteger)pId;
 
 @end
 

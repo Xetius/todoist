@@ -18,23 +18,22 @@
 @synthesize itemsTableViewController;
 @synthesize frontVisible;
 
-/*
-// The designated initializer. Override to perform setup that is required before the view is loaded.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // Custom initialization
-    }
-    return self;
+-(id)initWithProjectId:(NSInteger)pId {
+	self.projectId = pId;
+	return [super initWithNibName:@"TodoistViewController" bundle:nil];
 }
-*/
 
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
+-(id)initWithNibName:(NSString*)nibNameOrNil bundle:(NSBundle*)nibBundleOrNil {
+	self.projectId = 0;
+	return [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 }
-*/
 
-// Added a comment here
+-(void)pushViewController:(CONTROLLERTYPE)controllerType projectId:(NSInteger)pId {
+	TodoistViewController* newViewController = [[TodoistViewController alloc] initWithProjectId:pId];
+	[self.navigationController pushViewController:newViewController animated:YES];
+	[newViewController release];
+}
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,11 +50,13 @@
 	self.frontVisible = YES;
 	
     self.projectsTableViewController = [[ProjectsTableViewController alloc] initWithNibName:@"ProjectsTableViewController" bundle:nil];
+	self.projectsTableViewController.parentViewController = self;
 	self.projectsTableViewController.projectId = self.projectId;
-
 	[self.view addSubview:self.projectsTableViewController.view];
 	
 	self.itemsTableViewController = [[ItemsTableViewController alloc] initWithNibName:@"ItemsTableViewController" bundle:nil];
+	self.itemsTableViewController.parentViewController = self;
+	self.itemsTableViewController.projectId = self.projectId;
 	
 	[self.flipTableButton addTarget:self action:@selector(flipCurrentView) forControlEvents:UIControlEventTouchDown];
 	
@@ -87,11 +88,11 @@
 	[UIView setAnimationDelegate:self];
 	[UIView setAnimationDidStopSelector:@selector(myTransitionDidStop:finished:context:)];
 	if (self.frontVisible) {
-		[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:flipTableButton cache:YES];
+		[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:flipTableButton cache:YES];
 		[self.flipTableButton setBackgroundImage:[UIImage imageNamed:@"items-bar-button.png"] forState:UIControlStateNormal];
 	}
 	else {
-		[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:flipTableButton cache:YES];
+		[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:flipTableButton cache:YES];
 		[self.flipTableButton setBackgroundImage:[UIImage imageNamed:@"projects-bar-button.png"] forState:UIControlStateNormal];		
 	}
 	[UIView commitAnimations];

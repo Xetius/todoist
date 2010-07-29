@@ -8,12 +8,14 @@
 
 #import "ItemsTableViewController.h"
 #import "XDataEngine.h"
+#import "TodoistViewController.h"
 
 @implementation ItemsTableViewController
 
 @synthesize projectId;
 @synthesize incompleteItems;
 @synthesize completeItems;
+@synthesize parentViewController;
 
 #pragma mark -
 #pragma mark View lifecycle

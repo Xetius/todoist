@@ -249,7 +249,6 @@
 			};
 			buildConfigurationList = 83AB2FB511FA2184003290DC /* Build configuration list for PBXProject "Todoist" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
