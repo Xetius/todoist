@@ -24,58 +24,29 @@
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
-    self.clearsSelectionOnViewWillAppear = NO;
+    self.clearsSelectionOnViewWillAppear = YES;
  
 	XDataEngine* engine = [XDataEngine sharedDataEngine];
-	incompleteItems = [engine incompleteItemsForProjectId:[self projectId] WithDelegate:self];
-	completeItems = [engine completeItemsForProjectId:[self projectId] WithDelegate:self];
+	incompleteItems = [[engine incompleteItemsForProjectId:[self projectId] WithDelegate:self]retain];
+	completeItems = [[engine completeItemsForProjectId:[self projectId] WithDelegate:self]retain];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
-/*
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-*/
-/*
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-*/
-/*
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-}
-*/
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
-
 
 #pragma mark -
 #pragma mark Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 10;
+	NSInteger numRowsForSection = [[self itemsForSection:section] count];
+	DLog(@"section %d [%d items]", section, numRowsForSection);
+	return numRowsForSection;
 }
-
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -87,8 +58,11 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Configure the cell...
-    
+	NSArray* items = [self itemsForSection:indexPath.section];
+	NSDictionary* item = [items objectAtIndex:indexPath.row];
+	
+	cell.textLabel.text = [item objectForKey:@"content"];
+	
     return cell;
 }
 
@@ -169,8 +143,38 @@
 }
 
 -(void)dataHasLoaded:(int)requestType {
-	
+	XDataEngine* engine = [XDataEngine sharedDataEngine];
+	switch (requestType) {
+		case DATA_REQUEST_INCOMPLETE_ITEMS:
+		{
+			[incompleteItems release];
+			incompleteItems = [[engine incompleteItemsForProjectId:[self projectId] WithDelegate:self] retain];
+			[self.tableView reloadData];
+		}
+		break;
+		case DATA_REQUEST_COMPLETE_ITEMS:
+		{
+			[completeItems release];
+			completeItems = [[engine completeItemsForProjectId:[self projectId] WithDelegate:self]retain];
+			[self.tableView reloadData];
+		}
+		break;
+		default:
+		{
+			
+		}
+		break;
+	}
 }
 
+-(NSArray *)itemsForSection:(NSInteger)section {
+	
+	if (section == ITEMTABLESECTIONINCOMPLETE) {
+		return incompleteItems;
+	}
+	else {
+		return completeItems;
+	}
+}
 @end
 

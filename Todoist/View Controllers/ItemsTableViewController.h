@@ -24,4 +24,6 @@
 @property (nonatomic, retain) NSMutableArray* completeItems;
 @property (nonatomic, retain) TodoistViewController* parentViewController;
 
+-(NSArray*) itemsForSection:(NSInteger)section;
+
 @end

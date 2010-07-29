@@ -10,11 +10,6 @@
 #import "ProjectsTableViewController.h"
 #import "ItemsTableViewController.h"
 
-typedef enum {
-	CONTROLLERTYPEPROJECTS,
-	CONTROLLERTYPEITEMS
-} CONTROLLERTYPE;
-
 @interface TodoistViewController : UIViewController {
 
 	NSInteger projectId;

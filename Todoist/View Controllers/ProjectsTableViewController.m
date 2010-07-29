@@ -25,7 +25,7 @@
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
-    self.clearsSelectionOnViewWillAppear = NO;
+    self.clearsSelectionOnViewWillAppear = YES;
 	
 	XDataEngine* engine = [XDataEngine sharedDataEngine];
 	projects = [[engine projectsForProjectId:[self projectId] WithDelegate:self] retain];
@@ -147,10 +147,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 	NSDictionary* projectDetails = [self.projects objectAtIndex:indexPath.row];
+	bool hasChildren = [[projectDetails objectForKey:@"hasChildren"] boolValue];
 	NSInteger newProjectId = [[projectDetails objectForKey:@"id"] intValue];
 	
-    [parentViewController pushViewController:CONTROLLERTYPEPROJECTS projectId:newProjectId];
-	
+	if (hasChildren) {
+		[parentViewController pushViewController:CONTROLLERTYPEPROJECTS projectId:newProjectId];
+		
+	}
+	else {
+		[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	}
 }
 
 
