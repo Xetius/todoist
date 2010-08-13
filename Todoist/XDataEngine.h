@@ -21,6 +21,13 @@
 	NSMutableArray* projects;
 	NSMutableDictionary* incompleteItems;
 	NSMutableDictionary* completeItems;
+	NSMutableDictionary* loadingDictionary;
+	
+	bool projectsAreLoading;
+	bool incompleteItemsAreLoading;
+	bool completeItemsAreLoading;
+	bool userDetailsAreLoading;
+	bool labelsAreLoading;
 }
 
 +(XDataEngine*) sharedDataEngine;
@@ -34,11 +41,19 @@
 -(void) initIncompleteItems:(MessageObjects*)messageObjects;
 -(void) initCompleteItems:(MessageObjects*)messageObjects;
 -(void) calculateHasChildren:(NSMutableArray*)aList;
+-(bool) isLoading:(DATATYPE) dataType;
+-(void) setIsLoading:(DATATYPE) dataType withBoolean:(bool) bValue;
 
 @property (nonatomic, retain) NSMutableDictionary* userDetails;
 @property (nonatomic, retain) NSMutableArray* labels;
 @property (nonatomic, retain) NSMutableArray* projects;
 @property (nonatomic, retain) NSMutableDictionary* incompleteItems;
 @property (nonatomic, retain) NSMutableDictionary* completeItems;
+@property (nonatomic, retain) NSMutableDictionary* loadingDictionary;
+
+@property (nonatomic, assign) bool incompleteItemsAreLoading;
+@property (nonatomic, assign) bool completeItemsAreLoading;
+@property (nonatomic, assign) bool userDetailsAreLoading;
+@property (nonatomic, assign) bool labelsAreLoading;
 
 @end

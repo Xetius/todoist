@@ -32,6 +32,7 @@
 		83AB2FD411FA2185003290DC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83AB2FD211FA2185003290DC /* MainWindow.xib */; };
 		83AB2FD711FA2185003290DC /* TodoistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AB2FD611FA2185003290DC /* TodoistViewController.m */; };
 		83AB2FDA11FA2185003290DC /* TodoistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83AB2FD811FA2185003290DC /* TodoistViewController.xib */; };
+		83E4091C1215C2C30097319A /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E4091B1215C2C30097319A /* UIColor+Hex.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,8 @@
 		83AB2FD511FA2185003290DC /* TodoistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TodoistViewController.h; path = Classes/TodoistViewController.h; sourceTree = "<group>"; };
 		83AB2FD611FA2185003290DC /* TodoistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TodoistViewController.m; path = Classes/TodoistViewController.m; sourceTree = "<group>"; };
 		83AB2FD911FA2185003290DC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TodoistViewController.xib; sourceTree = "<group>"; };
+		83E4091A1215C2C30097319A /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		83E4091B1215C2C30097319A /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +175,8 @@
 			children = (
 				83AB2FCF11FA2185003290DC /* TodoistAppDelegate.h */,
 				83AB2FD011FA2185003290DC /* TodoistAppDelegate.m */,
+				83E4091A1215C2C30097319A /* UIColor+Hex.h */,
+				83E4091B1215C2C30097319A /* UIColor+Hex.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 			};
 			buildConfigurationList = 83AB2FB511FA2184003290DC /* Build configuration list for PBXProject "Todoist" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -300,6 +306,7 @@
 				8390ECA211FB914600E31BC5 /* XDataEngine.m in Sources */,
 				8390ECA511FB916100E31BC5 /* XConnectionHandler.m in Sources */,
 				8390ECA811FB916F00E31BC5 /* MessageObjects.m in Sources */,
+				83E4091C1215C2C30097319A /* UIColor+Hex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -31,34 +31,44 @@
 	projects = [[engine projectsForProjectId:[self projectId] WithDelegate:self] retain];
 }
 
-/*
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-*/
-/*
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-*/
-/*
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-}
-*/
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
+-(PROJECTSTABLECELLTYPE)cellTypeForCellAtIndexPath:(NSIndexPath *)indexPath {
+	XDataEngine* engine = [XDataEngine sharedDataEngine];
+	NSArray* theseProjects = [engine projectsForProjectId:self.projectId WithDelegate:nil];
+	if (theseProjects != nil)
+	{
+		// project or group
+		NSDictionary* projectItem = [theseProjects objectAtIndex:indexPath.row];
+		NSString* name = [projectItem objectForKey:@"name"];
+		bool hasChildren = [[projectItem objectForKey:@"hasChildren"] boolValue];
 
+		// Group
+		if ([name hasPrefix:@"*"]) {
+			if (hasChildren) {
+				return PROJECTSTABLECELLTYPEGROUPWITHCHILDREN;
+			}
+			else {
+				return PROJECTSTABLECELLTYPEGROUP;				
+			}
+		}
+		else {
+			if (hasChildren) {
+				return PROJECTSTABLECELLTYPEPROJECTWITHCHILDREN;
+			}
+			else {
+				return PROJECTSTABLECELLTYPEPROJECT;				
+			}
+		}
+	}
+	else {
+		// Nothing so Loading or empty
+		if ([engine isLoading:DATATYPEPROJECTS]) {
+			return PROJECTSTABLECELLTYPELOADING;
+		}
+		else {
+			return PROJECTSTABLECELLTYPEEMPTY;
+		}
+	}
+}
 
 #pragma mark -
 #pragma mark Table view data source
@@ -81,65 +91,114 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+	PROJECTSTABLECELLTYPE cellType = [self cellTypeForCellAtIndexPath:indexPath];
+	UITableViewCell* cell = nil;
+	switch (cellType) {
+		case PROJECTSTABLECELLTYPEEMPTY:
+		{
+			cell = [self tableView:tableView emptyCellForRowAtIndexPath:indexPath];
+			break;
+		}
+		case PROJECTSTABLECELLTYPELOADING:
+		{
+			cell = [self tableView:tableView loadingCellForRowAtIndexPath:indexPath];
+			break;
+		}
+		case PROJECTSTABLECELLTYPEGROUP:
+		{
+			cell = [self tableView:tableView groupCellForRowAtIndexPath:indexPath withChildren:false];
+			break;
+		}
+		case PROJECTSTABLECELLTYPEPROJECT:
+		{
+			cell = [self tableView:tableView projectCellForRowAtIndexPath:indexPath withChildren:false];
+			break;
+		}
+		case PROJECTSTABLECELLTYPEGROUPWITHCHILDREN:
+		{
+			cell = [self tableView:tableView groupCellForRowAtIndexPath:indexPath withChildren:true];
+			break;
+		}
+		case PROJECTSTABLECELLTYPEPROJECTWITHCHILDREN:
+		{
+			cell = [self tableView:tableView projectCellForRowAtIndexPath:indexPath withChildren:true];
+			break;
+		}
+		default:
+		{
+			cell = [self tableView:tableView emptyCellForRowAtIndexPath:indexPath];
+			break;
+		}
+	}
+	return cell;
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView emptyCellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
+	
+	cell.textLabel.text = @"Empty";
+	
+    return cell;
+	
+}
 
-    if (projects != nil) {
-		
-		NSDictionary* projectItem = [projects objectAtIndex:indexPath.row];
-		cell.textLabel.text = [projectItem objectForKey:@"name"];
-	}
-    else {
-		cell.textLabel.text = @"Loading...";
-	}
+-(UITableViewCell*)tableView:(UITableView *)tableView loadingCellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+	
+	cell.textLabel.text = @"Loading...";
 
     return cell;
+	
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+-(UITableViewCell*)tableView:(UITableView *)tableView groupCellForRowAtIndexPath:(NSIndexPath *)indexPath withChildren:(_Bool)hasChildren {
+    static NSString *CellIdentifier = @"Cell";
     
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+	
+	NSDictionary* projectItem = [projects objectAtIndex:indexPath.row];
+	cell.textLabel.text = [projectItem objectForKey:@"name"];
+	cell.accessoryType = hasChildren?UITableViewCellAccessoryDisclosureIndicator:UITableViewCellAccessoryNone;
+	NSString* colourString = [projectItem objectForKey:@"color"];
+	UIColor* cellColour = [UIColor colorForHex:colourString];
+	cell.imageView.image = [self cellImageForGroupWithColour:cellColour];
+
+    return cell;
+	
 }
-*/
 
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+-(UITableViewCell*)tableView:(UITableView *)tableView projectCellForRowAtIndexPath:(NSIndexPath *)indexPath withChildren:(_Bool)hasChildren {
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+	
+	NSDictionary* projectItem = [projects objectAtIndex:indexPath.row];
+	cell.textLabel.text = [projectItem objectForKey:@"name"];
+	cell.accessoryType = hasChildren?UITableViewCellAccessoryDisclosureIndicator:UITableViewCellAccessoryNone;
+	NSInteger cellCount = [[projectItem objectForKey:@"cache_count"]intValue];
+	NSString* colourString = [projectItem objectForKey:@"color"];
+	UIColor* cellColour = [UIColor colorForHex:colourString];
+	cell.imageView.image = [self cellImageForProjectWithCount:cellCount AndColour:cellColour];
+	
+	return cell;
+	
 }
-*/
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 #pragma mark -
 #pragma mark Table view delegate
@@ -190,6 +249,47 @@
 			[self.tableView reloadData];
 			break;
 	}
+}
+
+-(UIImage*)cellImageForProjectWithCount:(NSInteger)cellCount AndColour:(UIColor*)cellColour {
+	
+	CGFloat height = IMAGE_HEIGHT;
+	CGFloat width = IMAGE_WIDTH;
+	
+	UIGraphicsBeginImageContext(CGSizeMake(width, height));
+	CGContextRef context = UIGraphicsGetCurrentContext();
+	
+    [cellColour set];  //Set foreground and background color to your chosen color
+    CGContextFillRect(context,CGRectMake(0,0,width,height));  //Fill in the background
+    NSString* number = [NSString stringWithFormat:@"%i",cellCount];  //Turn the number into a string
+    UIFont* font = [UIFont systemFontOfSize:12];  //Get a font to draw with.  Change 12 to whatever font size you want to use.
+    CGSize size = [number sizeWithFont:font]; // Determine the size of the string you are about to draw
+    CGFloat x = (width - size.width)/2;  //Center the string
+    CGFloat y = (height - size.height)/2;
+    [[UIColor blackColor] set];  //Set the color of the string drawing function
+    [number drawAtPoint:CGPointMake(x,y) withFont:font];  //Draw the string
+	
+	UIImage* outputImage = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+	
+	return outputImage;
+}
+
+-(UIImage*)cellImageForGroupWithColour:(UIColor*)cellColour {
+	
+	CGFloat height = IMAGE_HEIGHT;
+	CGFloat width = IMAGE_WIDTH;
+	
+	UIGraphicsBeginImageContext(CGSizeMake(width, height));
+	CGContextRef context = UIGraphicsGetCurrentContext();
+	
+    [cellColour set];  //Set foreground and background color to your chosen color
+    CGContextFillRect(context,CGRectMake(0,0,width/2,height));  //Fill in the background
+	
+	UIImage* outputImage = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+	
+	return outputImage;
 }
 
 @end

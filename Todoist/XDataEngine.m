@@ -18,6 +18,11 @@ static XDataEngine* sharedDataEngine = nil;
 @synthesize projects;
 @synthesize incompleteItems;
 @synthesize completeItems;
+@synthesize loadingDictionary;
+@synthesize incompleteItemsAreLoading;
+@synthesize completeItemsAreLoading;
+@synthesize userDetailsAreLoading;
+@synthesize labelsAreLoading;
 
 #pragma mark -
 #pragma mark XDataEngine methods
@@ -45,6 +50,7 @@ static XDataEngine* sharedDataEngine = nil;
 	NSMutableArray* returnArray = [[NSMutableArray alloc] initWithCapacity:0];
 	if (self.projects) {
 
+		[self setIsLoading:DATATYPEPROJECTS withBoolean:false];
 		Boolean wantThese = (projectId == 0)?YES:NO;
 		NSInteger requiredLevel = 1;
 		for (NSDictionary* projectItem in self.projects) {
@@ -83,7 +89,9 @@ static XDataEngine* sharedDataEngine = nil;
 	}
 	else {
 		DLog(@"Projects are nil, setting selector to perform initProjects in 3 seconds");
+		[self setIsLoading:DATATYPEPROJECTS withBoolean:true];
 		[self performSelector:@selector(initProjects:) withObject:delegate afterDelay:1];
+		
 		return nil;
 	}
 }
@@ -226,6 +234,22 @@ static XDataEngine* sharedDataEngine = nil;
 
 -(id)autorelease {
 	return self;
+}
+
+-(bool)isLoading:(DATATYPE)dataType {
+	NSNumber* bValue = [loadingDictionary objectForKey:[NSNumber numberWithInt:dataType]];
+	if (bValue = nil) {
+		return false;
+	}
+	else {
+		return [bValue boolValue];
+	}
+}
+
+-(void)setIsLoading:(DATATYPE)dataType withBoolean:(_Bool)bValue {
+	NSNumber* key = [NSNumber numberWithInt:dataType];
+	NSNumber* value = [NSNumber numberWithBool:bValue];
+	[self.loadingDictionary setObject:value forKey:key];
 }
 
 @end
