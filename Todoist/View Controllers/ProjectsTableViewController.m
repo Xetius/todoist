@@ -126,7 +126,7 @@
 		}
 		default:
 		{
-			cell = [self tableView:tableView emptyCellForRowAtIndexPath:indexPath];
+			cell = [self tableView:tableView loadingCellForRowAtIndexPath:indexPath];
 			break;
 		}
 	}
@@ -134,35 +134,42 @@
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView emptyCellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"EmptyCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
 	
-	cell.textLabel.text = @"Empty";
+	cell.textLabel.text = @"No Sub Projects";
+    cell.textLabel.font = [UIFont systemFontOfSize:14];
 	
     return cell;
 	
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView loadingCellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"LoadingCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
 	
-	cell.textLabel.text = @"Loading...";
+    UIActivityIndicatorView* spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray]; 
+    cell.imageView.image = [UIImage imageNamed:@"white-background.png"]; 
+    [cell.imageView addSubview:spinner]; 
+    [spinner startAnimating]; 
+    [spinner release];
+    cell.textLabel.text = @"Loading...";
+    cell.textLabel.font = [UIFont systemFontOfSize:14];
 
     return cell;
 	
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView groupCellForRowAtIndexPath:(NSIndexPath *)indexPath withChildren:(_Bool)hasChildren {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"GroupCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -170,7 +177,8 @@
     }
 	
 	NSDictionary* projectItem = [projects objectAtIndex:indexPath.row];
-	cell.textLabel.text = [projectItem objectForKey:@"name"];
+	cell.textLabel.text = [[projectItem objectForKey:@"name"] substringFromIndex:1];
+    cell.textLabel.font = [UIFont systemFontOfSize:14];
 	cell.accessoryType = hasChildren?UITableViewCellAccessoryDisclosureIndicator:UITableViewCellAccessoryNone;
 	NSString* colourString = [projectItem objectForKey:@"color"];
 	UIColor* cellColour = [UIColor colorForHex:colourString];
@@ -181,7 +189,7 @@
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView projectCellForRowAtIndexPath:(NSIndexPath *)indexPath withChildren:(_Bool)hasChildren {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"ProjectCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -190,6 +198,7 @@
 	
 	NSDictionary* projectItem = [projects objectAtIndex:indexPath.row];
 	cell.textLabel.text = [projectItem objectForKey:@"name"];
+    cell.textLabel.font = [UIFont systemFontOfSize:14];
 	cell.accessoryType = hasChildren?UITableViewCellAccessoryDisclosureIndicator:UITableViewCellAccessoryNone;
 	NSInteger cellCount = [[projectItem objectForKey:@"cache_count"]intValue];
 	NSString* colourString = [projectItem objectForKey:@"color"];
@@ -206,16 +215,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 	NSDictionary* projectDetails = [self.projects objectAtIndex:indexPath.row];
-	bool hasChildren = [[projectDetails objectForKey:@"hasChildren"] boolValue];
+//	bool hasChildren = [[projectDetails objectForKey:@"hasChildren"] boolValue];
 	NSInteger newProjectId = [[projectDetails objectForKey:@"id"] intValue];
 	
-	if (hasChildren) {
-		[parentViewController pushViewController:CONTROLLERTYPEPROJECTS projectId:newProjectId];
-		
-	}
-	else {
-		[tableView deselectRowAtIndexPath:indexPath animated:YES];
-	}
+    [parentViewController pushViewController:CONTROLLERTYPEPROJECTS projectId:newProjectId];
+//	if (hasChildren) {
+//		
+//	}
+//	else {
+//		[tableView deselectRowAtIndexPath:indexPath animated:YES];
+//	}
 }
 
 
@@ -233,7 +242,6 @@
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
 }
-
 
 - (void)dealloc {
     [super dealloc];

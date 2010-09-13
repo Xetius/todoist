@@ -50,7 +50,7 @@ static XDataEngine* sharedDataEngine = nil;
 	NSMutableArray* returnArray = [[NSMutableArray alloc] initWithCapacity:0];
 	if (self.projects) {
 
-		[self setIsLoading:DATATYPEPROJECTS withBoolean:false];
+        [self setIsLoading:DATATYPEPROJECTS withBoolean:false];
 		Boolean wantThese = (projectId == 0)?YES:NO;
 		NSInteger requiredLevel = 1;
 		for (NSDictionary* projectItem in self.projects) {
@@ -142,6 +142,7 @@ static XDataEngine* sharedDataEngine = nil;
 	[self calculateHasChildren:tempArray];
 	self.projects = tempArray;
 	[tempArray release];
+    [self setIsLoading:DATATYPEPROJECTS withBoolean:true];
 	DLog(@"Projects initialised.  Calling protocol method dataHasLoaded on delegate");
 	[delegate dataHasLoaded:DATA_REQUEST_PROJECTS];
 }
@@ -237,16 +238,19 @@ static XDataEngine* sharedDataEngine = nil;
 }
 
 -(bool)isLoading:(DATATYPE)dataType {
-	NSNumber* bValue = [loadingDictionary objectForKey:[NSNumber numberWithInt:dataType]];
-	if (bValue = nil) {
-		return false;
+	NSNumber* bValue = [[self.loadingDictionary objectForKey:[NSNumber numberWithInt:dataType]]retain];
+	if (bValue == nil) {
+		return true;
 	}
 	else {
-		return [bValue boolValue];
+       return [bValue boolValue];
 	}
 }
 
 -(void)setIsLoading:(DATATYPE)dataType withBoolean:(_Bool)bValue {
+    if (self.loadingDictionary == nil) {
+        self.loadingDictionary = [[NSMutableDictionary alloc] initWithCapacity:1];
+    }
 	NSNumber* key = [NSNumber numberWithInt:dataType];
 	NSNumber* value = [NSNumber numberWithBool:bValue];
 	[self.loadingDictionary setObject:value forKey:key];

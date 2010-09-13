@@ -11,9 +11,6 @@
 		8390EC5911FB02D500E31BC5 /* ProjectsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8390EC5711FB02D500E31BC5 /* ProjectsTableViewController.xib */; };
 		8390EC5D11FB030900E31BC5 /* ItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8390EC5B11FB030900E31BC5 /* ItemsTableViewController.m */; };
 		8390EC5E11FB030900E31BC5 /* ItemsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8390EC5C11FB030900E31BC5 /* ItemsTableViewController.xib */; };
-		8390EC7411FB773C00E31BC5 /* button.psd in Resources */ = {isa = PBXBuildFile; fileRef = 8390EC7111FB773C00E31BC5 /* button.psd */; };
-		8390EC7511FB773C00E31BC5 /* items-bar-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8390EC7211FB773C00E31BC5 /* items-bar-button.png */; };
-		8390EC7611FB773C00E31BC5 /* projects-bar-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8390EC7311FB773C00E31BC5 /* projects-bar-button.png */; };
 		8390EC9911FB90E400E31BC5 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 8390EC8E11FB90E400E31BC5 /* NSObject+SBJSON.m */; };
 		8390EC9A11FB90E400E31BC5 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 8390EC9011FB90E400E31BC5 /* NSString+SBJSON.m */; };
 		8390EC9B11FB90E400E31BC5 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 8390EC9211FB90E400E31BC5 /* SBJSON.m */; };
@@ -32,7 +29,11 @@
 		83AB2FD411FA2185003290DC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83AB2FD211FA2185003290DC /* MainWindow.xib */; };
 		83AB2FD711FA2185003290DC /* TodoistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AB2FD611FA2185003290DC /* TodoistViewController.m */; };
 		83AB2FDA11FA2185003290DC /* TodoistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83AB2FD811FA2185003290DC /* TodoistViewController.xib */; };
-		83E4091C1215C2C30097319A /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E4091B1215C2C30097319A /* UIColor+Hex.m */; };
+		83AC9AC2123E7251002F94D6 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AC9AC1123E7251002F94D6 /* UIColor+Hex.m */; };
+		83AC9AC8123E72DB002F94D6 /* button.psd in Resources */ = {isa = PBXBuildFile; fileRef = 83AC9AC5123E72DB002F94D6 /* button.psd */; };
+		83AC9AC9123E72DB002F94D6 /* items-bar-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 83AC9AC6123E72DB002F94D6 /* items-bar-button.png */; };
+		83AC9ACA123E72DB002F94D6 /* projects-bar-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 83AC9AC7123E72DB002F94D6 /* projects-bar-button.png */; };
+		83CF73B7123EA93B000A7BBA /* white-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 83CF73B6123EA93B000A7BBA /* white-background.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,9 +43,6 @@
 		8390EC5A11FB030900E31BC5 /* ItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemsTableViewController.h; path = "View Controllers/ItemsTableViewController.h"; sourceTree = "<group>"; };
 		8390EC5B11FB030900E31BC5 /* ItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemsTableViewController.m; path = "View Controllers/ItemsTableViewController.m"; sourceTree = "<group>"; };
 		8390EC5C11FB030900E31BC5 /* ItemsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ItemsTableViewController.xib; path = "View Controllers/ItemsTableViewController.xib"; sourceTree = "<group>"; };
-		8390EC7111FB773C00E31BC5 /* button.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = button.psd; sourceTree = "<group>"; };
-		8390EC7211FB773C00E31BC5 /* items-bar-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "items-bar-button.png"; sourceTree = "<group>"; };
-		8390EC7311FB773C00E31BC5 /* projects-bar-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "projects-bar-button.png"; sourceTree = "<group>"; };
 		8390EC8911FB8FD200E31BC5 /* XLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLogging.h; sourceTree = "<group>"; };
 		8390EC8C11FB90E400E31BC5 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		8390EC8D11FB90E400E31BC5 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
@@ -81,8 +79,12 @@
 		83AB2FD511FA2185003290DC /* TodoistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TodoistViewController.h; path = Classes/TodoistViewController.h; sourceTree = "<group>"; };
 		83AB2FD611FA2185003290DC /* TodoistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TodoistViewController.m; path = Classes/TodoistViewController.m; sourceTree = "<group>"; };
 		83AB2FD911FA2185003290DC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TodoistViewController.xib; sourceTree = "<group>"; };
-		83E4091A1215C2C30097319A /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
-		83E4091B1215C2C30097319A /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		83AC9AC0123E7251002F94D6 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		83AC9AC1123E7251002F94D6 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		83AC9AC5123E72DB002F94D6 /* button.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = button.psd; sourceTree = "<group>"; };
+		83AC9AC6123E72DB002F94D6 /* items-bar-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "items-bar-button.png"; sourceTree = "<group>"; };
+		83AC9AC7123E72DB002F94D6 /* projects-bar-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "projects-bar-button.png"; sourceTree = "<group>"; };
+		83CF73B6123EA93B000A7BBA /* white-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-background.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,16 +112,6 @@
 				8390EC5B11FB030900E31BC5 /* ItemsTableViewController.m */,
 			);
 			name = "View Controllers";
-			sourceTree = "<group>";
-		};
-		8390EC7011FB773C00E31BC5 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				8390EC7111FB773C00E31BC5 /* button.psd */,
-				8390EC7211FB773C00E31BC5 /* items-bar-button.png */,
-				8390EC7311FB773C00E31BC5 /* projects-bar-button.png */,
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 		8390EC8811FB8F5D00E31BC5 /* Data Engine */ = {
@@ -173,10 +165,10 @@
 		83AB2FB711FA2184003290DC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				83AC9AC0123E7251002F94D6 /* UIColor+Hex.h */,
+				83AC9AC1123E7251002F94D6 /* UIColor+Hex.m */,
 				83AB2FCF11FA2185003290DC /* TodoistAppDelegate.h */,
 				83AB2FD011FA2185003290DC /* TodoistAppDelegate.m */,
-				83E4091A1215C2C30097319A /* UIColor+Hex.h */,
-				83E4091B1215C2C30097319A /* UIColor+Hex.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -195,7 +187,7 @@
 		83AB2FB911FA2184003290DC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8390EC7011FB773C00E31BC5 /* Images */,
+				83AC9AC4123E72DB002F94D6 /* Images */,
 				83AB2FD811FA2185003290DC /* TodoistViewController.xib */,
 				83AB2FD211FA2185003290DC /* MainWindow.xib */,
 				8390EC5711FB02D500E31BC5 /* ProjectsTableViewController.xib */,
@@ -222,6 +214,17 @@
 				83AB2FBF11FA2184003290DC /* Todoist.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		83AC9AC4123E72DB002F94D6 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				83CF73B6123EA93B000A7BBA /* white-background.png */,
+				83AC9AC5123E72DB002F94D6 /* button.psd */,
+				83AC9AC6123E72DB002F94D6 /* items-bar-button.png */,
+				83AC9AC7123E72DB002F94D6 /* projects-bar-button.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,9 +282,10 @@
 				83AB2FDA11FA2185003290DC /* TodoistViewController.xib in Resources */,
 				8390EC5911FB02D500E31BC5 /* ProjectsTableViewController.xib in Resources */,
 				8390EC5E11FB030900E31BC5 /* ItemsTableViewController.xib in Resources */,
-				8390EC7411FB773C00E31BC5 /* button.psd in Resources */,
-				8390EC7511FB773C00E31BC5 /* items-bar-button.png in Resources */,
-				8390EC7611FB773C00E31BC5 /* projects-bar-button.png in Resources */,
+				83AC9AC8123E72DB002F94D6 /* button.psd in Resources */,
+				83AC9AC9123E72DB002F94D6 /* items-bar-button.png in Resources */,
+				83AC9ACA123E72DB002F94D6 /* projects-bar-button.png in Resources */,
+				83CF73B7123EA93B000A7BBA /* white-background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,7 +310,7 @@
 				8390ECA211FB914600E31BC5 /* XDataEngine.m in Sources */,
 				8390ECA511FB916100E31BC5 /* XConnectionHandler.m in Sources */,
 				8390ECA811FB916F00E31BC5 /* MessageObjects.m in Sources */,
-				83E4091C1215C2C30097319A /* UIColor+Hex.m in Sources */,
+				83AC9AC2123E7251002F94D6 /* UIColor+Hex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,9 +354,10 @@
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_CFLAGS = "-DDEBUG=1";
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos4.1;
 			};
 			name = Debug;
 		};
@@ -364,9 +369,10 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos4.1;
 			};
 			name = Release;
 		};
