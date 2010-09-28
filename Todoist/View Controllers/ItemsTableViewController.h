@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XDataEngineDelegate.h"
+#import "BaseTableViewController.h"
 
 @class TodoistViewController;
 
-@interface ItemsTableViewController : UITableViewController<XDataEngineDelegate> {
+@interface ItemsTableViewController : BaseTableViewController {
 
     NSInteger projectId;
 	NSMutableArray* incompleteItems;
@@ -25,5 +25,7 @@
 @property (nonatomic, retain) TodoistViewController* parentViewController;
 
 -(NSArray*) itemsForSection:(NSInteger)section;
+-(ITEMTABLECELLTYPE) cellTypeForCellAtIndexPath:(NSIndexPath*)indexPath;
+-(UITableViewCell *)tableView:(UITableView *)tableView itemCellForRowAtIndexPath:(NSIndexPath *)indexPath withChildren:(bool)hasChildren;
 
 @end

@@ -29,8 +29,8 @@
 	XDataEngine* engine = [XDataEngine sharedDataEngine];
 	incompleteItems = [[engine incompleteItemsForProjectId:[self projectId] WithDelegate:self]retain];
 	completeItems = [[engine completeItemsForProjectId:[self projectId] WithDelegate:self]retain];
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+   
+    self.emptyTableText = @"No Sub Items";
 }
 
 #pragma mark -
@@ -65,20 +65,25 @@
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+
+    ITEMTABLECELLTYPE cellType = [self cellTypeForCellAtIndexPath:indexPath];
+    switch (cellType) {
+        ITEMTABLECELLTYPEEMPTY:
+            return [self tableView:tableView emptyCellForRowAtIndexPath:indexPath];
+            break;
+        ITEMTABLECELLTYPELOADING:
+            return [super tableView:tableView loadingCellForRowAtIndexPath:indexPath];
+            break;
+        ITEMTABLECELLTYPEITEM:
+            return [self tableView:tableView itemCellForRowAtIndexPath:indexPath withChildren:false];
+            break;
+        ITEMTABLECELLTYPEITEMWITHCHILDREN:
+            return [self tableView:tableView itemCellForRowAtIndexPath:indexPath withChildren:true];
+            break;
+            
     }
-    
-	NSArray* items = [self itemsForSection:indexPath.section];
-	NSDictionary* item = [items objectAtIndex:indexPath.row];
-	
-	cell.textLabel.text = [item objectForKey:@"content"];
-	
-    return cell;
+    	
+    return nil;
 }
 
 
@@ -194,5 +199,58 @@
 		return completeItems;
 	}
 }
+
+-(ITEMTABLECELLTYPE) cellTypeForCellAtIndexPath:(NSIndexPath*)indexPath {
+    
+    XDataEngine* engine = [XDataEngine sharedDataEngine];
+    NSMutableArray* itemArray = nil;
+    bool isLoading = false;
+    if (indexPath.section == ITEMTABLESECTIONINCOMPLETE) {
+        itemArray = [engine incompleteItemsForProjectId:self.projectId WithDelegate:nil];
+        isLoading = [engine isLoading:DATATYPEINCOMPLETEITEMS];
+    }
+    else {
+        itemArray = [engine completeItemsForProjectId:self.projectId WithDelegate:nil];
+        isLoading = [engine isLoading:DATATYPECOMPLETEITEMS];
+    }
+    
+    if (itemArray != nil) {
+        NSDictionary* item = [itemArray objectAtIndex:indexPath.row];
+        bool hasChildren = [[item objectForKey:@"hasChildren"] boolValue];
+        
+        if (hasChildren) {
+            return ITEMTABLECELLTYPEITEMWITHCHILDREN;
+        }
+        else {
+            return ITEMTABLECELLTYPEITEM;
+        }
+    }
+    else {
+        if (isLoading) {
+            return ITEMTABLECELLTYPELOADING;
+        }
+        else {
+            return ITEMTABLECELLTYPEEMPTY;
+        }
+    }
+    return ITEMTABLECELLTYPEEMPTY;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView itemCellForRowAtIndexPath:(NSIndexPath *)indexPath withChildren:(bool)hasChildren {
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+    
+	NSArray* items = [self itemsForSection:indexPath.section];
+	NSDictionary* item = [items objectAtIndex:indexPath.row];
+	
+	cell.textLabel.text = [item objectForKey:@"content"];
+
+    return cell;
+}
+
 @end
 

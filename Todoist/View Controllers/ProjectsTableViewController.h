@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XDataEngineDelegate.h"
+#import "BaseTableViewController.h"
+
 @class TodoistViewController;
 
-@interface ProjectsTableViewController : UITableViewController<XDataEngineDelegate> {
+@interface ProjectsTableViewController : BaseTableViewController {
 	
 	NSInteger projectId;
 	NSMutableArray* projects;
@@ -22,8 +23,7 @@
 @property (nonatomic, retain) TodoistViewController* parentViewController;
 
 -(PROJECTSTABLECELLTYPE) cellTypeForCellAtIndexPath:(NSIndexPath*)indexPath;
--(UITableViewCell *)tableView:(UITableView *)tableView emptyCellForRowAtIndexPath:(NSIndexPath *)indexPath;
--(UITableViewCell *)tableView:(UITableView *)tableView loadingCellForRowAtIndexPath:(NSIndexPath *)indexPath;
+
 -(UITableViewCell *)tableView:(UITableView *)tableView groupCellForRowAtIndexPath:(NSIndexPath *)indexPath withChildren:(bool)hasChildren;
 -(UITableViewCell *)tableView:(UITableView *)tableView projectCellForRowAtIndexPath:(NSIndexPath *)indexPath withChildren:(bool)hasChildren;
 -(UIImage*)cellImageForProjectWithCount:(NSInteger)cellCount AndColour:(UIColor*)cellColour;

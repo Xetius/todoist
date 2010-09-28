@@ -29,6 +29,8 @@
 	
 	XDataEngine* engine = [XDataEngine sharedDataEngine];
 	projects = [[engine projectsForProjectId:[self projectId] WithDelegate:self] retain];
+    
+    self.emptyTableText = @"No Sub Projects";
 }
 
 -(PROJECTSTABLECELLTYPE)cellTypeForCellAtIndexPath:(NSIndexPath *)indexPath {
@@ -131,41 +133,6 @@
 		}
 	}
 	return cell;
-}
-
--(UITableViewCell*)tableView:(UITableView *)tableView emptyCellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"EmptyCell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-	
-	cell.textLabel.text = @"No Sub Projects";
-    cell.textLabel.font = [UIFont systemFontOfSize:14];
-	
-    return cell;
-	
-}
-
--(UITableViewCell*)tableView:(UITableView *)tableView loadingCellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"LoadingCell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-	
-    UIActivityIndicatorView* spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray]; 
-    cell.imageView.image = [UIImage imageNamed:@"white-background.png"]; 
-    [cell.imageView addSubview:spinner]; 
-    [spinner startAnimating]; 
-    [spinner release];
-    cell.textLabel.text = @"Loading...";
-    cell.textLabel.font = [UIFont systemFontOfSize:14];
-
-    return cell;
-	
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView groupCellForRowAtIndexPath:(NSIndexPath *)indexPath withChildren:(_Bool)hasChildren {

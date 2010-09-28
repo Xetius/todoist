@@ -34,6 +34,8 @@
 		83AC9AC9123E72DB002F94D6 /* items-bar-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 83AC9AC6123E72DB002F94D6 /* items-bar-button.png */; };
 		83AC9ACA123E72DB002F94D6 /* projects-bar-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 83AC9AC7123E72DB002F94D6 /* projects-bar-button.png */; };
 		83CF73B7123EA93B000A7BBA /* white-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 83CF73B6123EA93B000A7BBA /* white-background.png */; };
+		83CF73DC1243D8DF000A7BBA /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CF73DA1243D8DF000A7BBA /* BaseTableViewController.m */; };
+		83CF73E21243DABD000A7BBA /* BaseTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83CF73E11243DABD000A7BBA /* BaseTableViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +87,9 @@
 		83AC9AC6123E72DB002F94D6 /* items-bar-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "items-bar-button.png"; sourceTree = "<group>"; };
 		83AC9AC7123E72DB002F94D6 /* projects-bar-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "projects-bar-button.png"; sourceTree = "<group>"; };
 		83CF73B6123EA93B000A7BBA /* white-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-background.png"; sourceTree = "<group>"; };
+		83CF73D91243D8DF000A7BBA /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		83CF73DA1243D8DF000A7BBA /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		83CF73E11243DABD000A7BBA /* BaseTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseTableViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +111,8 @@
 			children = (
 				83AB2FD511FA2185003290DC /* TodoistViewController.h */,
 				83AB2FD611FA2185003290DC /* TodoistViewController.m */,
+				83CF73D91243D8DF000A7BBA /* BaseTableViewController.h */,
+				83CF73DA1243D8DF000A7BBA /* BaseTableViewController.m */,
 				8390EC5511FB02D500E31BC5 /* ProjectsTableViewController.h */,
 				8390EC5611FB02D500E31BC5 /* ProjectsTableViewController.m */,
 				8390EC5A11FB030900E31BC5 /* ItemsTableViewController.h */,
@@ -190,6 +197,7 @@
 				83AC9AC4123E72DB002F94D6 /* Images */,
 				83AB2FD811FA2185003290DC /* TodoistViewController.xib */,
 				83AB2FD211FA2185003290DC /* MainWindow.xib */,
+				83CF73E11243DABD000A7BBA /* BaseTableViewController.xib */,
 				8390EC5711FB02D500E31BC5 /* ProjectsTableViewController.xib */,
 				8390EC5C11FB030900E31BC5 /* ItemsTableViewController.xib */,
 				83AB2FC811FA2185003290DC /* Todoist-Info.plist */,
@@ -286,6 +294,7 @@
 				83AC9AC9123E72DB002F94D6 /* items-bar-button.png in Resources */,
 				83AC9ACA123E72DB002F94D6 /* projects-bar-button.png in Resources */,
 				83CF73B7123EA93B000A7BBA /* white-background.png in Resources */,
+				83CF73E21243DABD000A7BBA /* BaseTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +320,7 @@
 				8390ECA511FB916100E31BC5 /* XConnectionHandler.m in Sources */,
 				8390ECA811FB916F00E31BC5 /* MessageObjects.m in Sources */,
 				83AC9AC2123E7251002F94D6 /* UIColor+Hex.m in Sources */,
+				83CF73DC1243D8DF000A7BBA /* BaseTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
